@@ -114,7 +114,9 @@ Include /etc/phpmyadmin/apache.conf
 
 - First, connect in sudo mysql
 
-```sudo mysql -u root```
+```
+sudo mysql -u root
+```
 Check your accounts present in your db
 ```
 SELECT User,Host FROM mysql.user;
@@ -154,9 +156,13 @@ Query OK, 0 rows affected (0,01 sec)
 sudo adduser magento
 ```
 
-```sudo usermod -g www-data magento```
+```
+sudo usermod -g www-data magento
+```
 
-```sudo chown magento:www-data /var/www/html/```
+```
+sudo chown magento:www-data /var/www/html/
+```
 
 
 
