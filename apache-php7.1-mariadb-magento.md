@@ -210,6 +210,21 @@ Query OK, 0 rows affected (0,01 sec)
 - Exit MySQL and try to reconnect without sudo.
 
 
+
+
+
+### Install Composer
+
+```
+sudo curl -sS https://getcomposer.org/installer | php
+```
+Move composer file to the required directory
+
+```
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+
 ### Create a magento user
 ```
 sudo adduser magento
@@ -224,17 +239,26 @@ sudo chown magento:www-data /var/www/html/
 ```
 
 
-### Install Composer
+Set pre-installation permissions
 
 ```
-sudo curl -sS https://getcomposer.org/installer | php
-```
-Move composer file to the required directory
+find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} + && find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} + && chown -R :www-data . && chmod u+x bin/magento
 
 ```
-sudo mv composer.phar /usr/local/bin/composer
-```
 
+One last step
+
+Edit your .htacess
+```
+nano .htaccess
+```
+Replace 756MB with 2G in the .htacess to avoid memory isssues in the installtion.
+
+Install cron tasks
+```
+bin/magento cron:install
+```
+Now your magento is all ready for hacking.
 
 
 
