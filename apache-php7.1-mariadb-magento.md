@@ -56,22 +56,23 @@ sudo apt update
 
 ```
 sudo apt install php7.1 libapache2-mod-php7.1 php7.1-common php7.1-gmp php7.1-curl php7.1-soap php7.1-bcmath php7.1-intl php7.1-mbstring php7.1-xmlrpc php7.1-mcrypt php7.1-mysql php7.1-gd php7.1-xml php7.1-cli php7.1-zip
-
+```
 
 Move the index.php as the first in the below file, to serve the PHP as first option
 
 ```
 sudo nano /etc/apache2/mods-enabled/dir.conf
-
 ```
+
 Restart apache for changes to take effect
 
 ```
 sudo systemctl restart apache2
+
 ```
 
 
-```
+
 
 ```
 sudo nano /etc/php/7.1/apache2/php.ini
