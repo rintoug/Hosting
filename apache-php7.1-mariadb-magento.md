@@ -160,7 +160,9 @@ sudo systemctl restart apache2
 
 Open apache.conf using your favorite editor, mine is nano :)
 
+```
 sudo nano /etc/apache2/apache2.conf
+```
 
 Then add the following line at the end of file:
 ```
