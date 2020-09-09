@@ -29,13 +29,14 @@ sudo nano ```/etc/apache2/sites-available/000-default.conf```
 </Directory>
 ```
 
+#### Optional setup
 Open Apache settings file to set the Global ServerName
 ```
 sudo nano /etc/apache2/apache2.conf
 ```
 Add this line at the end of the file, then save and exit
 
-#### Optional
+
 ```
 ServerName <server_IP>
 ```
