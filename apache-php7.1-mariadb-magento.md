@@ -165,7 +165,7 @@ sudo chown magento:www-data /var/www/html/
 ```
 
 
-Install Composer
+### Install Composer
 
 ```
 sudo curl -sS https://getcomposer.org/installer | php
