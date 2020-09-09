@@ -19,6 +19,46 @@ sudo systemctl start apache2.service
 sudo systemctl enable apache2.service
 ```
 
+
+Now open Apache configuration file and add the below snippet at the below of the all content. This will enable .htaccess rules required for Magento
+
+sudo nano ```/etc/apache2/sites-available/000-default.conf```
+```
+<Directory "/var/www/html">
+    AllowOverride All
+</Directory>
+```
+
+Open Apache settings file to set the Global ServerName
+```
+sudo nano /etc/apache2/apache2.conf
+```
+Add this line at the end of the file, then save and exit
+
+#### Optional
+```
+ServerName <server_IP>
+```
+Check for any errors
+
+```
+sudo apache2ctl configtest
+```
+Enable Apache rewrite
+
+```
+sudo a2enmod rewrite
+```
+Restart Apache for any changes to take effect
+
+```
+sudo systemctl restart apache2
+```
+
+
+
+
+
 ### Step 2: Install MariaDB Database Server
 
 
