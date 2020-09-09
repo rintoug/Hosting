@@ -99,6 +99,56 @@ sudo apt-get install phpmyadmin php7.1-mbstring php7.1-gettext -y
 sudo systemctl restart apache2
 ```
 
+### How to solve the phpmyadmin not found issue after upgrading php and apache?
+
+Open apache.conf using your favorite editor, mine is nano :)
+
+sudo nano /etc/apache2/apache2.conf
+
+Then add the following line at the end of file:
+```
+Include /etc/phpmyadmin/apache.conf
+```
+
+### can't login as mysql user root from normal user account in ubuntu 18.04
+
+First, connect in sudo mysql
+
+```sudo mysql -u root```
+Check your accounts present in your db
+```
+SELECT User,Host FROM mysql.user;
++------------------+-----------+
+| User             | Host      |
++------------------+-----------+
+| admin            | localhost |
+| debian-sys-maint | localhost |
+| magento_user     | localhost |
+| mysql.sys        | localhost |
+| root             | localhost |
+Delete current root@localhost account
+```
+```
+mysql> DROP USER 'root'@'localhost';
+Query OK, 0 rows affected (0,00 sec)
+```
+Recreate your user
+```
+mysql> CREATE USER 'root'@'%' IDENTIFIED BY '';
+Query OK, 0 rows affected (0,00 sec)
+```
+Give permissions to your user (don't forget to flush privileges)
+```
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+Query OK, 0 rows affected (0,00 sec)
+```
+```
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0,01 sec)
+```
+Exit MySQL and try to reconnect without sudo.
+
+
 
 
 
