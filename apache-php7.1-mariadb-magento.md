@@ -112,7 +112,7 @@ Include /etc/phpmyadmin/apache.conf
 
 ### can't login as mysql user root from normal user account in ubuntu 18.04
 
-First, connect in sudo mysql
+- First, connect in sudo mysql
 
 ```sudo mysql -u root```
 Check your accounts present in your db
@@ -132,12 +132,12 @@ Delete current root@localhost account
 mysql> DROP USER 'root'@'localhost';
 Query OK, 0 rows affected (0,00 sec)
 ```
-Recreate your user
+- Recreate your user
 ```
 mysql> CREATE USER 'root'@'%' IDENTIFIED BY '';
 Query OK, 0 rows affected (0,00 sec)
 ```
-Give permissions to your user (don't forget to flush privileges)
+- Give permissions to your user (don't forget to flush privileges)
 ```
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 Query OK, 0 rows affected (0,00 sec)
@@ -146,7 +146,7 @@ Query OK, 0 rows affected (0,00 sec)
 mysql> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0,01 sec)
 ```
-Exit MySQL and try to reconnect without sudo.
+- Exit MySQL and try to reconnect without sudo.
 
 
 
