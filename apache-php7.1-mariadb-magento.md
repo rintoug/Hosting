@@ -149,6 +149,16 @@ Query OK, 0 rows affected (0,01 sec)
 - Exit MySQL and try to reconnect without sudo.
 
 
+### Create a magento user
+```
+sudo adduser magento
+```
+
+```sudo usermod -g www-data magento```
+
+```sudo chown magento:www-data /var/www/html/```
+
+
 
 
 
