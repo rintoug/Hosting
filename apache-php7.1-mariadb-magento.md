@@ -260,5 +260,21 @@ bin/magento cron:install
 ```
 Now your magento is all ready for hacking.
 
+### Magento folder & file permissions
+```
+find . -type f -exec chmod 664 {} \;
+
+find . -type d -exec chmod 775 {} \;
+
+find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+
+find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+
+//Change the ownership to your Magento user
+sudo chown -R <Magento user>:<web server group> .
+
+//<web server group> usually will be www-data
+```
+
 
 
