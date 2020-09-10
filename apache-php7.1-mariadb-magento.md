@@ -277,4 +277,43 @@ sudo chown -R <Magento user>:<web server group> .
 ```
 
 
+### Create Virtual Hosts
+
+
+```
+/var/www/
+├── domain1.com
+│   └── public_html
+├── domain2.com
+│   └── public_html
+├── domain3.com
+│   └── public_html
+
+```
+
+Start by creating the root directory for the example.com domain:
+
+```
+sudo mkdir -p /var/www/example.com/public_html
+```
+
+Open your editor and create the demo file:
+
+
+```
+<!--/var/www/example.com/public_html/index.html-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to example.com</title>
+  </head>
+  <body>
+    <h1>Success! example.com home page!</h1>
+  </body>
+</html>
+```
+https://linuxize.com/post/how-to-set-up-apache-virtual-hosts-on-ubuntu-18-04/
+
+
 
